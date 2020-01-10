@@ -1,9 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 import Footer from "./components/Footer";
 import Header from './components/Header';
 import TodoItem from "./components/TodoItem";
+import productsData from "./vschoolProducts";
+
+const productComponents=productsData.map(product=>{
+  return(
+    <TodoItem name={this.name}  />
+  )
+});
 
 function App() {
   const firstName="Andrey";
