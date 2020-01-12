@@ -9,14 +9,19 @@ class App extends React.Component{
     this.state={
       isLogged:true
     }
+    this.handleClick=this.handleClick.bind(this)
   }
-
+ handleClick(){
+   this.setState(prevState => {
+     return{isLogged:!prevState.isLogged}
+    })
+ }
   render(){
     return (
       <div>
       Code goes here
       <Conditional isLogged={this.state.isLogged}/>
-      <Button />
+      <Button isLogged={this.state.isLogged} handleClick={this.handleClick}/>
       </div>
       )
   }

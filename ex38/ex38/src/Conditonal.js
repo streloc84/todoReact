@@ -1,7 +1,9 @@
 import React from "react"
 
 function Conditional(props){
-    return(1)
+    let cond=props.isLogged?"Logged in":"Logged out";
+    
+return(<div>{cond}</div>)
 }
 
 export default Conditional
