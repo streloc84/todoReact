@@ -4,9 +4,9 @@ class Button extends React.Component{
     
     render(){
     
-    let login="LOG IN"
+    let login="BUTTON"
     return(
-    <button>{login}</button>)
+    <button onChange={()=>{this.state.isLogged?login="LOG OUT":login="LOG IN"}}>{login}</button>)
     }
 }
 
