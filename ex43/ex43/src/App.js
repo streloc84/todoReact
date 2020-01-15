@@ -5,23 +5,31 @@ super()
 this.state = {
   firstName:"",
   lastName:"",
-  age:0,
+  age:"",
   gender:"",
   destination:"",
-  vegan: false
+  vegan:false
+  
 }
 this.handleChange=this.handleChange.bind(this)
+this.flagChange=this.flagChange.bind(this)
 }
 
 handleChange(event){
   const{name,value,type,checked}=event.target
+  //if(type==="checkbox"){this.setState({[name]:checked})}
   if(type==="radio"){this.setState({[name]:checked})}
-  if(type==="checkbox"){}
+  
   this.setState({
     [name]:value
   })
 }
-
+flagChange(event){
+  const{name,checked}=event.target
+  this.setState({
+    [name]:checked
+  })
+}
 render() {
 return (
 <main>
@@ -34,10 +42,14 @@ return (
 <br />
 <label></label>
 <select value={this.state.destination} name="destination" onChange={this.handleChange}>
-  <option>Paris</option>
-  <option>Gadyukino</option>
-</select>
-<input type="checkbox" placeholder="Веган?" name="vegan" checked={this.state.vegan} onChange={this.handleChange}/>
+  <option value="">-- Please Choose a destination --</option>
+  <option value="Paris">Paris</option>
+  <option value="Gadyukino">Gadyukino</option>
+</select><br />
+<label>
+<input type="checkbox" name="vegan" checked={this.state.vegan} onClick={this.flagChange} />
+Веган?
+</label>
 {/* Здесь создайте поле со списком для выбора пункта
 назначения */}
 <br />
@@ -53,7 +65,7 @@ return (
 <p>Your destination: {this.state.destination}</p>
 <p>
 Your dietary restrictions:
-{/* Список диетологических ограничений */}
+{this.state.vegan?"Чертов веган":""}
 </p>
 </main>
 )
