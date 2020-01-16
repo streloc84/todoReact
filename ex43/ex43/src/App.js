@@ -8,8 +8,8 @@ this.state = {
   age:"",
   gender:"",
   destination:"",
-  vegan:false
-  
+  vegan:false,
+  cosher:false
 }
 this.handleChange=this.handleChange.bind(this)
 this.flagChange=this.flagChange.bind(this)
